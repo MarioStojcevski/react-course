@@ -1,0 +1,26 @@
+{
+  "name": "react-course",
+  "version": "1.0.0",
+  "description": "A 50-hour React SPA course covering web fundamentals, React basics, routing, state management, styling, deployment, and AI-assisted development. Students build and deploy a capstone project to GitHub Pages by the end.",
+  "main": "index.js",
+  "scripts": {
+    "slides": "slidev",
+    "slides:01": "slidev 2026/01-how-the-web-works/slides/session-01.md",
+    "slides:02": "slidev 2026/02-modern-js-for-react/slides/session-02.md",
+    "slides:build": "slidev build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarioStojcevski/react-course.git"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/MarioStojcevski/react-course/issues"
+  },
+  "homepage": "https://github.com/MarioStojcevski/react-course#readme",
+  "devDependencies": {
+    "@slidev/cli": "^52.19.2",
+    "@slidev/theme-default": "^0.25.0"
+  }
+}
