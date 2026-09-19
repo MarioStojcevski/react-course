@@ -10,32 +10,40 @@
 - Vite as the build tool
 - Function components + hooks only — no class components, no Redux (Context/useReducer covers state needs at this scope)
 - CSS Modules as default styling approach
-- One central project (course management app) that evolves across the course
+- One central project (store app) that evolves across the course
 - Session-specific exercises go in `code/` folders, not separate projects
 - Slides built in Slidev, shared deps at repo root
-- Backend: Supabase (free tier) introduced in Week 4 for real data persistence
+- API: [DummyJSON](https://dummyjson.com) — free, no key, CORS-friendly
 
 ---
 
-## Project: Course Management App
+## Project: Store App (DummyJSON)
 
-**What:** A Udemy/Pluralsight-style course platform where the instructor (Mario) can post courses, and students can browse, enroll, and follow lessons.
+**What:** An e-commerce-style store app using DummyJSON as the backend. Products, users, carts, search, filtering — all the dynamic patterns students need.
 
-**Why:** Real-world use case — the instructor can actually use this to publish courses after the class ends.
+**Why:** DummyJSON provides rich, real-world data (100+ products, categories, users, auth) without any backend setup. Students learn API patterns that transfer to any real project.
 
 **Tech progression:**
 | Phase | Weeks | Stack |
 |---|---|---|
-| 1. Vanilla JS | 1-3 | HTML/CSS/JS, localStorage, mock data |
-| 2. React fundamentals | 2-5 | Vite + React, components, state, routing |
-| 3. Real backend | 4+ | Supabase (auth, database, storage) |
-| 4. Production | 7-8 | GitHub Pages deployment, testing |
+| 1. Vanilla JS | 1-3 | HTML/CSS/JS, fetch from DummyJSON |
+| 2. React fundamentals | 4-6 | Vite + React, components, state, routing |
+| 3. Advanced React | 7-8 | Context, hooks, testing, deployment |
 
-**Data model (target):**
-- `courses` — title, description, image, price, category, instructor
-- `lessons` — title, content, video URL, course_id, order
-- `enrollments` — user_id, course_id, progress
-- `users` — auth + profile
+**DummyJSON endpoints we'll use:**
+- `GET /products` — list products (pagination, search, categories)
+- `GET /products/:id` — single product
+- `GET /products/categories` — list categories
+- `GET /products/category/:name` — filter by category
+- `POST /auth/login` — user login
+- `GET /users/:id` — user profile
+- `POST /carts/add` — add to cart
+
+**Data model (mapped to DummyJSON):**
+- Products → `/products` (title, description, image, price, category, rating)
+- Categories → `/products/categories`
+- Users → `/users` + `/auth/login`
+- Cart → `/carts`
 
 **Required feature checklist:**
 - At least 2 routes (Week 4)
@@ -86,7 +94,7 @@ react-course/
 - [x] Session 02 — Modern JavaScript for React (slides + code)
 
 ### Current
-- [ ] Session 03 — Vanilla JS Fetch Mini-App (exercise + start course platform)
+- [ ] Session 03 — Vanilla JS Fetch Mini-App (exercise + start store app)
 
 ### Upcoming
 - [ ] Session 04 — React Intro, JSX, Props
@@ -118,13 +126,13 @@ react-course/
 
 | Week | Day 1 (2h) | Day 2 (2h) | Day 3 (2h exercise) |
 |---|---|---|---|
-| 1 | How the web works ✅ | Modern JS for React ✅ | Vanilla JS + fetch mini-app → **start course platform** |
+| 1 | How the web works ✅ | Modern JS for React ✅ | Vanilla JS + fetch mini-app → **start store app** |
 | 2 | React intro, JSX, props | State, events, styling | Practice: component-driven UI |
 | 3 | useEffect, data fetching | Forms, custom hooks | Practice → project milestone 1 |
-| 4 | React Router / SPA nav | Project architecture | Build routing into course platform |
-| 5 | Context API / useReducer | API layer patterns | Build state/data layer into course platform |
-| 6 | Styling & layout | A11y + performance | Style/polish course platform |
-| 7 | Git workflow + GH Pages deploy | opencode: setup & AI-assisted dev | Deploy course platform |
+| 4 | React Router / SPA nav | Project architecture | Build routing into store app |
+| 5 | Context API / useReducer | API layer patterns | Build state/data layer into store app |
+| 6 | Styling & layout | A11y + performance | Style/polish store app |
+| 7 | Git workflow + GH Pages deploy | opencode: setup & AI-assisted dev | Deploy store app |
 | 8 | Project review + debugging clinic | Testing basics + error handling | Free build / office hours |
 | 9 | **Demo Day** (single 2h session) | | |
 
@@ -140,7 +148,6 @@ react-course/
 ---
 
 ## Suggested Next Steps
-1. Complete Session 03 — build course platform starter in vanilla JS
+1. Complete Session 03 — build store app starter in vanilla JS
 2. Create slides for Session 03
-3. Set up Supabase project for backend (Week 4)
-4. Continue building slides as we go
+3. Continue building slides as we go

@@ -4,6 +4,8 @@
 
 Before we learn React, we're going to build a small app with plain JavaScript that fetches data from an API and displays it. This will show us the pain of doing it manually — so when we see React tomorrow, we'll understand *why* it exists.
 
+**API we're using:** [DummyJSON](https://dummyjson.com) — free, no API key, CORS-friendly, 100+ products.
+
 ## Prerequisites
 
 - Sessions 01-02 completed (understand HTTP, DOM, async/await, fetch)
@@ -14,20 +16,24 @@ Before we learn React, we're going to build a small app with plain JavaScript th
 ### 1. The Goal
 
 We'll build a tiny app that:
-1. Fetches a list of users from a public API
-2. Creates HTML elements for each user
+1. Fetches a list of products from DummyJSON
+2. Creates HTML elements for each product
 3. Appends them to the page
 
 All with vanilla JavaScript. No frameworks, no libraries.
 
 ### 2. The API We're Using
 
-[JSONPlaceholder](https://jsonplaceholder.typicode.com/) is a free fake API for testing. We'll use `/users` to get a list of users:
+[DummyJSON](https://dummyjson.com/products) returns 100+ products with:
+- `id`, `title`, `description`, `price`, `discountPercentage`
+- `thumbnail`, `images[]`
+- `category`, `brand`, `rating`, `stock`
+- `tags[]`
 
 ```javascript
-const response = await fetch('https://jsonplaceholder.typicode.com/users');
-const users = await response.json();
-// Returns an array of 10 user objects
+const response = await fetch('https://dummyjson.com/products?limit=10');
+const data = await response.json();
+// data.products = array of 10 product objects
 ```
 
 ### 3. Creating Elements with JavaScript
@@ -37,19 +43,20 @@ Instead of writing HTML by hand, we create elements in JS:
 ```javascript
 // Create a heading
 const heading = document.createElement('h1');
-heading.textContent = 'My Users';
+heading.textContent = 'Products';
 
-// Create a list
-const list = document.createElement('ul');
-
-// Create a list item
-const item = document.createElement('li');
-item.textContent = 'Mario';
+// Create a card
+const card = document.createElement('div');
+card.className = 'product-card';
+card.innerHTML = `
+  <img src="${product.thumbnail}" alt="${product.title}">
+  <h3>${product.title}</h3>
+  <p>$${product.price}</p>
+`;
 
 // Put it all together
-list.appendChild(item);
 document.body.appendChild(heading);
-document.body.appendChild(list);
+document.getElementById('app').appendChild(card);
 ```
 
 ### 4. Building the App — Step by Step
@@ -60,48 +67,57 @@ Here's the full vanilla JS app we'll build:
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Vanilla JS Users App</title>
+    <title>Store - Vanilla JS</title>
     <style>
-      body { font-family: sans-serif; max-width: 600px; margin: 40px auto; }
-      .user { padding: 10px; border-bottom: 1px solid #eee; }
+      body { font-family: sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; }
+      .product { display: flex; gap: 16px; padding: 16px; border-bottom: 1px solid #eee; }
+      .product img { width: 100px; height: 100px; object-fit: cover; border-radius: 4px; }
+      .product h3 { margin: 0 0 4px; }
+      .product .price { color: #2c7a2c; font-weight: bold; font-size: 1.2em; }
+      .product .old-price { text-decoration: line-through; color: #999; }
       .error { color: red; }
       .loading { color: gray; }
     </style>
   </head>
   <body>
-    <h1>Users</h1>
+    <h1>Store</h1>
     <div id="app"></div>
+
     <script>
-      async function loadUsers() {
+      async function loadProducts() {
         const app = document.getElementById('app');
 
         // Show loading state
         app.innerHTML = '<p class="loading">Loading...</p>';
 
         try {
-          const response = await fetch('https://jsonplaceholder.typicode.com/users');
-          const users = await response.json();
+          const response = await fetch('https://dummyjson.com/products?limit=10');
+          const data = await response.json();
 
           // Clear loading message
           app.innerHTML = '';
 
-          // Create a card for each user
-          users.forEach(user => {
+          // Create a card for each product
+          data.products.forEach(product => {
             const div = document.createElement('div');
-            div.className = 'user';
+            div.className = 'product';
             div.innerHTML = `
-              <h3>${user.name}</h3>
-              <p>${user.email}</p>
-              <p>${user.company.name}</p>
+              <img src="${product.thumbnail}" alt="${product.title}">
+              <div>
+                <h3>${product.title}</h3>
+                <p>${product.description}</p>
+                <span class="price">$${product.price}</span>
+                <span class="old-price">$${Math.round(product.price / (1 - product.discountPercentage / 100))}</span>
+              </div>
             `;
             app.appendChild(div);
           });
         } catch (error) {
-          app.innerHTML = '<p class="error">Failed to load users.</p>';
+          app.innerHTML = '<p class="error">Failed to load products.</p>';
         }
       }
 
-      loadUsers();
+      loadProducts();
     </script>
   </body>
 </html>
@@ -131,34 +147,31 @@ Notice what we're doing:
 - If data changes, we have to tear down and rebuild everything manually
 - No way to "update" just one part of the UI
 - Getting complex (nested elements, lists, conditionals) becomes a nightmare
-- No reuse — this code only works for users
+- No reuse — this code only works for products
 
 React solves all of this. Tomorrow you'll see how.
 
 ## Step-by-Step Walkthrough
 
-1. Create a new folder `03-vanilla-fetch-app`
-2. Create `index.html` inside it
-3. Copy the full HTML from section 4 above into the file
-4. Open it in your browser (double-click the file)
-5. You should see 10 users loaded from the API
-6. Open DevTools → Network tab → see the request to JSONPlaceholder
-7. Now disconnect your internet and refresh — see the error state
+1. Open `code/products.html` in your browser
+2. You should see 10 products loaded from DummyJSON
+3. Open DevTools → Network tab → see the request
+4. Now disconnect your internet and refresh — see the error state
 
 ## Try It Yourself
 
-1. **Easy:** Change the API URL to `https://jsonplaceholder.typicode.com/posts` and display posts (title + body) instead of users.
+1. **Easy:** Change `?limit=10` to `?limit=5` to show fewer products.
 
-2. **Medium:** Add a search box that filters users by name as you type. (Hint: Listen to the `input` event on the search box.)
+2. **Medium:** Add a search box that filters products by title as you type. (Hint: Listen to the `input` event and filter the array.)
 
-3. **Challenge:** Instead of creating elements with `createElement`, build the HTML string directly and use `innerHTML`. Compare which approach feels cleaner.
+3. **Challenge:** Fetch categories from `https://dummyjson.com/products/categories` and add a dropdown to filter by category. When a category is selected, fetch only products from that category.
 
 ## Common Mistakes & How to Fix Them
 
-- **"CORS error"** — JSONPlaceholder allows CORS, so this shouldn't happen. If it does, you're likely using a different API that blocks browser requests
+- **"CORS error"** — DummyJSON allows CORS, so this shouldn't happen. If it does, check the URL.
 - **"app is null"** — Your script ran before the DOM loaded. Put `<script>` at the end of `<body>` or use `defer`
-- **Nothing shows up** — Open DevTools Console. There's probably an error message. Read it — it tells you exactly what went wrong
-- **Data looks like `[object Object]`** — You're calling `.toString()` on an object. Use `JSON.stringify()` or access a specific property like `user.name`
+- **Nothing shows up** — Open DevTools Console. There's probably an error message. Read it.
+- **Data looks like `[object Object]`** — You're calling `.toString()` on an object. Use `JSON.stringify()` or access a specific property like `product.title`
 
 ## Recap / Checklist
 
@@ -172,7 +185,7 @@ After today, you should be able to:
 
 ## Useful Links
 
-- [JSONPlaceholder](https://jsonplaceholder.typicode.com/)
+- [DummyJSON](https://dummyjson.com)
+- [DummyJSON Products](https://dummyjson.com/products)
 - [MDN: Document.createElement](https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement)
 - [MDN: Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
-- [MDN: Handling Errors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch)

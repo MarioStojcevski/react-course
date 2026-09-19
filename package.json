@@ -7,6 +7,7 @@
     "slides": "slidev",
     "slides:01": "slidev 2026/01-how-the-web-works/slides/session-01.md",
     "slides:02": "slidev 2026/02-modern-js-for-react/slides/session-02.md",
+    "slides:03": "slidev 2026/03-vanilla-js-fetch-mini-app/slides/session-03.md",
     "slides:build": "slidev build"
   },
   "repository": {
