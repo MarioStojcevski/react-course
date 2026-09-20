@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <title>Store - Vanilla JS</title>
@@ -11,7 +11,9 @@
         line-height: 1.6;
       }
 
-      h1 { color: #333; }
+      h1 {
+        color: #333;
+      }
 
       .search-box {
         margin-bottom: 20px;
@@ -89,8 +91,12 @@
     <h1>Store</h1>
 
     <div class="search-box">
-      <input type="text" id="search" placeholder="Search products...">
+      <input type="text" id="search" placeholder="Search products..." />
     </div>
+
+    <select id="category">
+      <option value="">All categories</option>
+    </select>
 
     <div id="app"></div>
 
@@ -98,13 +104,13 @@
       let allProducts = [];
 
       async function loadProducts() {
-        const app = document.getElementById('app');
+        const app = document.getElementById("app");
 
         // Show loading state
         app.innerHTML = '<p class="loading">Loading...</p>';
 
         try {
-          const response = await fetch('https://dummyjson.com/products?limit=20');
+          const response = await fetch("https://dummyjson.com/products?limit=5");
           const data = await response.json();
 
           allProducts = data.products;
@@ -115,20 +121,20 @@
       }
 
       function renderProducts(products) {
-        const app = document.getElementById('app');
+        const app = document.getElementById("app");
 
         if (products.length === 0) {
           app.innerHTML = '<p class="loading">No products found.</p>';
           return;
         }
 
-        app.innerHTML = '';
+        app.innerHTML = "";
 
-        products.forEach(product => {
+        products.forEach((product) => {
           const originalPrice = Math.round(product.price / (1 - product.discountPercentage / 100));
 
-          const div = document.createElement('div');
-          div.className = 'product';
+          const div = document.createElement("div");
+          div.className = "product";
           div.innerHTML = `
             <img src="${product.thumbnail}" alt="${product.title}">
             <div>
@@ -145,18 +151,45 @@
       }
 
       // Search functionality
-      document.getElementById('search').addEventListener('input', (e) => {
+      document.getElementById("search").addEventListener("input", (e) => {
         const query = e.target.value.toLowerCase();
-        const filtered = allProducts.filter(p =>
-          p.title.toLowerCase().includes(query) ||
-          p.description.toLowerCase().includes(query) ||
-          p.category.toLowerCase().includes(query)
-        );
+        const filtered = allProducts.filter((p) => p.title.toLowerCase().includes(query));
         renderProducts(filtered);
       });
 
+      async function loadCategories() {
+        const response = await fetch("https://dummyjson.com/products/categories")
+        const categories = await response.json()
+
+        const categorySelect = document.getElementById("category")
+
+        categories.forEach(category => {
+          const option = document.createElement("option")
+          option.value = category.slug
+          option.textContent = category.name
+
+          categorySelect.appendChild(option)
+        })
+      }
+
+      document.getElementById("category").addEventListener("change", async (e) => {
+        const category = e.target.value
+
+        if (category === "") {
+          loadProducts()
+          return
+        }
+
+        const response = await fetch(`https://dummyjson.com/products/category/${category}`)
+        const data = await response.json()
+
+        allProducts = data.products
+        renderProducts(allProducts)
+      })
+
       // Load products on page load
       loadProducts();
+      loadCategories()
     </script>
   </body>
 </html>
