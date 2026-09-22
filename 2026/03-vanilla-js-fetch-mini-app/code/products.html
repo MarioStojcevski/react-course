@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Store - Vanilla JS</title>
+
     <style>
       body {
         font-family: sans-serif;
@@ -11,19 +12,28 @@
         line-height: 1.6;
       }
 
-      h1 { color: #333; }
-
-      .search-box {
-        margin-bottom: 20px;
+      h1 {
+        color: #333;
       }
 
-      .search-box input {
+      .filters {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+      }
+
+      .filters input,
+      .filters select {
         padding: 10px;
-        width: 100%;
-        max-width: 400px;
         border: 1px solid #ddd;
         border-radius: 4px;
         font-size: 16px;
+      }
+
+      .filters input {
+        width: 100%;
+        max-width: 400px;
       }
 
       .product {
@@ -85,11 +95,20 @@
       }
     </style>
   </head>
+
   <body>
     <h1>Store</h1>
 
-    <div class="search-box">
-      <input type="text" id="search" placeholder="Search products...">
+    <div class="filters">
+      <input
+        type="text"
+        id="search"
+        placeholder="Search products..."
+      >
+
+      <select id="category">
+        <option value="">All categories</option>
+      </select>
     </div>
 
     <div id="app"></div>
@@ -100,17 +119,67 @@
       async function loadProducts() {
         const app = document.getElementById('app');
 
-        // Show loading state
         app.innerHTML = '<p class="loading">Loading...</p>';
 
         try {
-          const response = await fetch('https://dummyjson.com/products?limit=20');
+          const response = await fetch(
+            'https://dummyjson.com/products?limit=5'
+          );
+
           const data = await response.json();
 
           allProducts = data.products;
+
           renderProducts(allProducts);
         } catch (error) {
-          app.innerHTML = '<p class="error">Failed to load products. Check your connection.</p>';
+          app.innerHTML =
+            '<p class="error">Failed to load products. Check your connection.</p>';
+        }
+      }
+
+      async function loadCategories() {
+        try {
+          const response = await fetch(
+            'https://dummyjson.com/products/categories'
+          );
+
+          const categories = await response.json();
+
+          const categorySelect =
+            document.getElementById('category');
+
+          categories.forEach(category => {
+            const option =
+              document.createElement('option');
+
+            option.value = category.slug;
+            option.textContent = category.name;
+
+            categorySelect.appendChild(option);
+          });
+        } catch (error) {
+          console.error('Failed to load categories:', error);
+        }
+      }
+
+      async function loadProductsByCategory(category) {
+        const app = document.getElementById('app');
+
+        app.innerHTML = '<p class="loading">Loading...</p>';
+
+        try {
+          const response = await fetch(
+            `https://dummyjson.com/products/category/${category}`
+          );
+
+          const data = await response.json();
+
+          allProducts = data.products;
+
+          renderProducts(allProducts);
+        } catch (error) {
+          app.innerHTML =
+            '<p class="error">Failed to load category products.</p>';
         }
       }
 
@@ -118,45 +187,88 @@
         const app = document.getElementById('app');
 
         if (products.length === 0) {
-          app.innerHTML = '<p class="loading">No products found.</p>';
+          app.innerHTML =
+            '<p class="loading">No products found.</p>';
+
           return;
         }
 
         app.innerHTML = '';
 
         products.forEach(product => {
-          const originalPrice = Math.round(product.price / (1 - product.discountPercentage / 100));
+          const originalPrice = Math.round(
+            product.price /
+            (1 - product.discountPercentage / 100)
+          );
 
-          const div = document.createElement('div');
+          const div =
+            document.createElement('div');
+
           div.className = 'product';
+
           div.innerHTML = `
             <img src="${product.thumbnail}" alt="${product.title}">
+
             <div>
               <h3>${product.title}</h3>
-              <p class="description">${product.description}</p>
-              <span class="price">$${product.price}</span>
-              <span class="old-price">$${originalPrice}</span>
+
+              <p class="description">
+                ${product.description}
+              </p>
+
+              <span class="price">
+                $${product.price}
+              </span>
+
+              <span class="old-price">
+                $${originalPrice}
+              </span>
+
               <br>
-              <span class="category">${product.category}</span>
+
+              <span class="category">
+                ${product.category}
+              </span>
             </div>
           `;
+
           app.appendChild(div);
         });
       }
 
-      // Search functionality
-      document.getElementById('search').addEventListener('input', (e) => {
-        const query = e.target.value.toLowerCase();
-        const filtered = allProducts.filter(p =>
-          p.title.toLowerCase().includes(query) ||
-          p.description.toLowerCase().includes(query) ||
-          p.category.toLowerCase().includes(query)
-        );
-        renderProducts(filtered);
-      });
+      document
+        .getElementById('search')
+        .addEventListener('input', event => {
+          const query =
+            event.target.value.toLowerCase();
 
-      // Load products on page load
+          const filtered =
+            allProducts.filter(product =>
+              product.title
+                .toLowerCase()
+                .includes(query)
+            );
+
+          renderProducts(filtered);
+        });
+
+      document
+        .getElementById('category')
+        .addEventListener('change', event => {
+          const selectedCategory =
+            event.target.value;
+
+          if (selectedCategory === '') {
+            loadProducts();
+          } else {
+            loadProductsByCategory(
+              selectedCategory
+            );
+          }
+        });
+
       loadProducts();
+      loadCategories();
     </script>
   </body>
 </html>
