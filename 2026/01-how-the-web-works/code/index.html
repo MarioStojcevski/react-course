@@ -10,7 +10,7 @@
         padding: 0 20px;
         line-height: 1.6;
       }
-      h1 { color: #333; }
+      h1 { color: red; }
       #output { color: #666; font-style: italic; }
       button {
         padding: 8px 16px;
@@ -20,7 +20,7 @@
     </style>
   </head>
   <body>
-    <h1>Hello, World!</h1>
+    <h1>Welcome to My First Page!</h1>
     <p id="output"></p>
     <button onclick="changeText()">Change Text</button>
     <button onclick="changeColor()">Change Color</button>
@@ -51,6 +51,9 @@
         div.style.borderRadius = '4px';
         document.getElementById('container').appendChild(div);
       }
+
+       // Change page title
+      document.title = 'My Page';
 
       // Log to console on page load
       document.getElementById('output').textContent = 'Page loaded. Click a button!';
