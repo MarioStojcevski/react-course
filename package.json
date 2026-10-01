@@ -9,6 +9,11 @@
     "slides:02": "slidev 2026/02-modern-js-for-react/slides/session-02.md",
     "slides:03": "slidev 2026/03-vanilla-js-fetch-mini-app/slides/session-03.md",
     "slides:04": "slidev 2026/04-react-intro-jsx-props/slides/session-04.md",
+    "slides:05": "slidev 2026/05-state-events-styling/slides/session-05.md",
+    "slides:06": "slidev 2026/06-practice-component-driven-ui/slides/session-06.md",
+    "slides:07": "slidev 2026/07-useeffect-data-fetching/slides/session-07.md",
+    "slides:08": "slidev 2026/08-forms-custom-hooks/slides/session-08.md",
+    "slides:09": "slidev 2026/09-practice-capstone-idea/slides/session-09.md",
     "slides:build": "slidev build"
   },
   "repository": {
@@ -23,6 +28,7 @@
   "homepage": "https://github.com/MarioStojcevski/react-course#readme",
   "devDependencies": {
     "@slidev/cli": "^52.19.2",
-    "@slidev/theme-default": "^0.25.0"
+    "@slidev/theme-default": "^0.25.0",
+    "playwright-chromium": "^1.63.0"
   }
 }

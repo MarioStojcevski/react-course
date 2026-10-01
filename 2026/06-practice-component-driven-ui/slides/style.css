@@ -1,0 +1,16 @@
+/*
+ * Global safety net: nothing spills outside the slide canvas.
+ * Slide canvas is 980x554 with 56px / 40px padding -> ~470px of content height.
+ */
+
+/* A code block scrolls internally instead of pushing past the slide bottom.
+   400px ~= 21 code lines; the slide has ~470px of content height total. */
+.slidev-layout .slidev-code {
+  max-height: 400px;
+}
+
+/* Long tokens (paths, function calls) wrap instead of widening a table. */
+.slidev-layout th,
+.slidev-layout td {
+  overflow-wrap: anywhere;
+}
