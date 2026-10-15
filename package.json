@@ -14,6 +14,11 @@
     "slides:07": "slidev 2026/07-useeffect-data-fetching/slides/session-07.md",
     "slides:08": "slidev 2026/08-forms-custom-hooks/slides/session-08.md",
     "slides:09": "slidev 2026/09-practice-capstone-idea/slides/session-09.md",
+    "slides:10": "slidev 2026/10-react-router-spa-nav/slides/session-10.md",
+    "slides:11": "slidev 2026/11-project-architecture/slides/session-11.md",
+    "slides:12": "slidev 2026/12-build-routing-into-capstone/slides/session-12.md",
+    "slides:13": "slidev 2026/13-context-api-usereducer/slides/session-13.md",
+    "slides:14": "slidev 2026/14-api-layer-patterns/slides/session-14.md",
     "slides:build": "slidev build"
   },
   "repository": {
