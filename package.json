@@ -19,6 +19,12 @@
     "slides:12": "slidev 2026/12-build-routing-into-capstone/slides/session-12.md",
     "slides:13": "slidev 2026/13-context-api-usereducer/slides/session-13.md",
     "slides:14": "slidev 2026/14-api-layer-patterns/slides/session-14.md",
+    "slides:16": "slidev 2026/16-styling-layout/slides/session-16.md",
+    "slides:17": "slidev 2026/17-a11y-performance/slides/session-17.md",
+    "slides:18": "slidev 2026/18-style-polish-capstone/slides/session-18.md",
+    "slides:19": "slidev 2026/19-git-workflow-gh-pages-deploy/slides/session-19.md",
+    "slides:20": "slidev 2026/20-opencode-setup-ai-assisted-dev/slides/session-20.md",
+    "slides:21": "slidev 2026/21-deploy-capstone-with-opencode/slides/session-21.md",
     "slides:build": "slidev build"
   },
   "repository": {
