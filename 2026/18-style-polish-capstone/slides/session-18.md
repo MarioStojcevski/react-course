@@ -61,7 +61,6 @@ audit  →  system  →  components  →  states  →  responsive  →  verify
 - Every change goes into tokens or a shared component — nothing one-off
 
 ---
-
 layout: center
 ---
 
@@ -94,7 +93,6 @@ Forms        □ labels, hints, errors announced
 > 💡 The audit list is the deliverable. Screens get shorter after it.
 
 ---
-
 layout: center
 ---
 
@@ -164,7 +162,6 @@ bigger gap = bigger relationship
 ```
 
 ---
-
 layout: center
 ---
 
@@ -251,7 +248,6 @@ export function Button({ variant = 'primary', children, ...props }) {
 - Wrap the whole card in a `<Link>` so it's keyboard-reachable
 
 ---
-
 layout: center
 ---
 
@@ -333,7 +329,6 @@ return <ProductGrid products={items} />;
 - Empty state offers the next action, not an apology
 
 ---
-
 layout: center
 ---
 
@@ -413,7 +408,6 @@ const [open, setOpen] = useState(false);
 - Close on Escape while focus is in the menu
 
 ---
-
 layout: center
 ---
 
@@ -485,7 +479,6 @@ function toggleTheme() {
 - Respect `prefers-color-scheme` for the default value
 
 ---
-
 layout: center
 ---
 
@@ -551,7 +544,6 @@ Six steps, in order. The audit comes first.
 > 💡 The grep in step 6 is the audit proving itself. Run it.
 
 ---
-
 layout: center
 ---
 
@@ -591,7 +583,6 @@ On your capstone, not the demo.
 | Dark mode resets on reload | Persist the attribute in `localStorage` |
 
 ---
-
 layout: center
 ---
 
@@ -616,7 +607,6 @@ layout: center
 **Session 19 — Git Workflow + GH Pages Deploy** — commit the polish, then put it online.
 
 ---
-
 layout: center
 ---
 

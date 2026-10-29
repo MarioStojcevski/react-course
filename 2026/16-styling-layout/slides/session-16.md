@@ -59,7 +59,6 @@ It works. Two problems appear later:
 > 💡 Modules scope your selectors. Tokens unify your values.
 
 ---
-
 layout: center
 ---
 
@@ -220,7 +219,6 @@ shadows     2-3         sm md lg
 > 💡 More tokens ≠ better system. Add a token only when you need it a third time.
 
 ---
-
 layout: center
 ---
 
@@ -340,7 +338,6 @@ wide screen:   3-4 cards per row     ← no @media needed
 - `flex: 1` = the vacuum cleaner, takes what's left
 
 ---
-
 layout: center
 ---
 
@@ -426,7 +423,6 @@ they live together: a Grid page full of Flexbox components
 > 💡 Not a rivalry. Grid is the frame, Flexbox is the furniture.
 
 ---
-
 layout: center
 ---
 
@@ -514,7 +510,6 @@ Ctrl+Shift+M     DevTools device toolbar
 > 💡 Test the small screen first. Desktop almost always survives.
 
 ---
-
 layout: center
 ---
 
@@ -597,7 +592,6 @@ open your capstone, look at each screen:
 - Screens should share one max-width and one spacing scale
 
 ---
-
 layout: center
 ---
 
@@ -670,7 +664,6 @@ grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 > 💡 The horizontal-scroll check is the one students skip. Do it.
 
 ---
-
 layout: center
 ---
 
@@ -709,7 +702,6 @@ On your capstone, not the demo.
 | Centering doesn't work | `margin: 0 auto` needs a `max-width` (or `display: flex; justify-content: center`) |
 
 ---
-
 layout: center
 ---
 
@@ -734,7 +726,6 @@ layout: center
 **Session 17 — Accessibility & Performance** — the styled app, usable by everyone and fast.
 
 ---
-
 layout: center
 ---
 

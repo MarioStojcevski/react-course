@@ -67,7 +67,6 @@ checklist → build → push → watch → debug → verify → ship
 - The session ends with a live URL you've verified yourself
 
 ---
-
 layout: center
 ---
 
@@ -143,7 +142,6 @@ check in dist/index.html:
 - If assets 404 in preview, they will 404 in production
 
 ---
-
 layout: center
 ---
 
@@ -193,7 +191,6 @@ Could not resolve "./Cart.module.css" from src/pages/Cart.jsx
 - Run the same command locally: `npm run build` reproduces most CI failures
 
 ---
-
 layout: center
 ---
 
@@ -255,7 +252,6 @@ a fix that isn't verified on the live URL is a hypothesis, not a fix
 - Attach the actual file with `@` so the answer is about your setup
 
 ---
-
 layout: center
 ---
 
@@ -321,7 +317,6 @@ broken in both
 - Stop at the first thing that fails — that's the fix, not the fifth thing
 
 ---
-
 layout: center
 ---
 
@@ -368,7 +363,6 @@ base: '/' because the repo-name segment is gone now
 - Skip it entirely — the GitHub URL is fine for Demo Day
 
 ---
-
 layout: center
 ---
 
@@ -435,7 +429,6 @@ git push
 > 💡 A green build is not a fix. The re-test is the fix.
 
 ---
-
 layout: center
 ---
 
@@ -476,7 +469,6 @@ On your capstone, not the demo.
 | Secret in the repo | Rotate the key first, remove it second |
 
 ---
-
 layout: center
 ---
 
@@ -501,7 +493,6 @@ layout: center
 **Session 22 — Capstone Review + Debugging Clinic** — group debugging: stale closures, missing deps, and the bugs you've been living with.
 
 ---
-
 layout: center
 ---
 

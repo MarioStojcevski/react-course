@@ -62,7 +62,6 @@ repo  →  branch  →  push  →  build  →  Actions  →  404 fix  →  verif
 - Every command on these slides goes in your capstone, not a scratch folder
 
 ---
-
 layout: center
 ---
 
@@ -190,7 +189,6 @@ lost a commit you needed?     git reflog  →  git switch -c rescue <sha>
   destructive command on this slide, so read `git status` first
 
 ---
-
 layout: center
 ---
 
@@ -267,7 +265,6 @@ git commit -m "merge: keep USD in cart totals"
 - Conflicts mean two sessions touched one file, not that you broke git
 
 ---
-
 layout: center
 ---
 
@@ -311,7 +308,6 @@ never: git push --force origin main   ← rewrites history others may have
 - Commit messages are how you'll reconstruct "what changed before Demo Day"
 
 ---
-
 layout: center
 ---
 
@@ -364,7 +360,6 @@ asset URL    /my-capstone/assets/index-abc123.js
 > 💡 Set `base` before the first deploy, not during the deploy panic.
 
 ---
-
 layout: center
 ---
 
@@ -457,7 +452,6 @@ jobs:
 - The log names the file and line — paste **that** into opencode tomorrow
 
 ---
-
 layout: center
 ---
 
@@ -575,7 +569,6 @@ half-configured  →  broken in production only, never in dev
 ```
 
 ---
-
 layout: center
 ---
 
@@ -618,7 +611,6 @@ Run it before you push the workflow.
 > 💡 Test the deployed site, not the memory of the deployed site.
 
 ---
-
 layout: center
 ---
 
@@ -693,7 +685,6 @@ git add . && git commit -m "feat: initial capstone project"
 > 💡 If only step 7 fails, the fix is almost always `base` or the 404 half.
 
 ---
-
 layout: center
 ---
 
@@ -734,7 +725,6 @@ On your capstone, not the demo.
 | Conflict markers in production | Search `<<<<<<<` before every commit |
 
 ---
-
 layout: center
 ---
 
@@ -759,7 +749,6 @@ layout: center
 **Session 20 — opencode: Setup & AI-Assisted Development** — install the AI pair-programming tool you'll use to debug this deploy.
 
 ---
-
 layout: center
 ---
 

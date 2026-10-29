@@ -55,7 +55,6 @@ Two gaps remain:
 > 💡 Style makes it look finished. a11y and speed make it finished.
 
 ---
-
 layout: center
 ---
 
@@ -143,7 +142,6 @@ h3 {
 ```
 
 ---
-
 layout: center
 ---
 
@@ -202,7 +200,6 @@ status   →  polite, waits           (search results, loading)
 - Silent UI = "nothing happened" for screen reader users
 
 ---
-
 layout: center
 ---
 
@@ -271,7 +268,6 @@ To actually be a modal, you must:
 > 💡 Announce what it is, then do what you announced.
 
 ---
-
 layout: center
 ---
 
@@ -359,7 +355,6 @@ function Dropdown({ items, onSelect }) {
 > 💡 Automated tools find 30% of problems. The other 70% need a keyboard.
 
 ---
-
 layout: center
 ---
 
@@ -544,7 +539,6 @@ compiler does:  automatic memoization, stable refs, dep analysis
 > 💡 Know why memo exists, so you can read what the compiler wrote.
 
 ---
-
 layout: center
 ---
 
@@ -605,7 +599,6 @@ not every button component — the chunk overhead isn't worth it
 - Always give `<Suspense>` a fallback — never a blank screen
 
 ---
-
 layout: center
 ---
 
@@ -678,7 +671,6 @@ Tab through the whole app. Unplug the mouse.
 > 💡 If step 4 shows nothing slow, steps 5's memoization is optional. Say so out loud.
 
 ---
-
 layout: center
 ---
 
@@ -718,7 +710,6 @@ On your capstone, not the demo.
 | Everything memoized | Profile first, memo what's actually slow |
 
 ---
-
 layout: center
 ---
 
@@ -743,7 +734,6 @@ layout: center
 **Session 18 — Style/Polish Capstone** — a full design audit and polish pass, all session long.
 
 ---
-
 layout: center
 ---
 

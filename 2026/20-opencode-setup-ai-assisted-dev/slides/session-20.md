@@ -65,7 +65,6 @@ install → TUI → plan/build → diff review → prompting → build it
 - We install once, then use one real task end to end
 
 ---
-
 layout: center
 ---
 
@@ -112,7 +111,6 @@ opencode          # starts in the current directory
 > 💡 Use it as a junior developer who types fast and never gets tired of questions.
 
 ---
-
 layout: center
 ---
 
@@ -187,7 +185,6 @@ git commit -m "docs: add AGENTS.md for AI-assisted dev"
 - Commit it: every future session starts knowing the same rules
 
 ---
-
 layout: center
 ---
 
@@ -254,7 +251,6 @@ read what you are approving:
 - If a request is unrelated to your ask, deny it and rephrase
 
 ---
-
 layout: center
 ---
 
@@ -303,7 +299,6 @@ the obvious one-liner    →  build straight away
 - Iterating on a plan costs seconds; reverting a bad build costs a commit
 
 ---
-
 layout: center
 ---
 
@@ -380,7 +375,6 @@ better: /undo, then re-prompt with what you learned
 - Never patch a bad change on top of a bad change — undo, then re-ask
 
 ---
-
 layout: center
 ---
 
@@ -455,7 +449,6 @@ follow-up prompts are free:
 ```
 
 ---
-
 layout: center
 ---
 
@@ -497,7 +490,6 @@ rule: it proposes, you dispose — and you can only dispose
 ```
 
 ---
-
 layout: center
 ---
 
@@ -566,7 +558,6 @@ git commit -m "feat: <what you actually did>"
 - ✅ Nothing secret in the diff
 
 ---
-
 layout: center
 ---
 
@@ -606,7 +597,6 @@ On your capstone, not the demo.
 | Changes pile up across topics | `/new` when you switch problems; old context skews answers |
 
 ---
-
 layout: center
 ---
 
@@ -631,7 +621,6 @@ layout: center
 **Session 21 — Deploy Capstone with opencode** — ship the app, then debug the deploy with the tool you just learned.
 
 ---
-
 layout: center
 ---
 
