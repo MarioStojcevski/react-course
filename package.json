@@ -8,6 +8,28 @@
     "slides:01": "slidev 2026/01-how-the-web-works/slides/session-01.md",
     "slides:02": "slidev 2026/02-modern-js-for-react/slides/session-02.md",
     "slides:03": "slidev 2026/03-vanilla-js-fetch-mini-app/slides/session-03.md",
+    "slides:04": "slidev 2026/04-react-intro-jsx-props/slides/session-04.md",
+    "slides:05": "slidev 2026/05-state-events-styling/slides/session-05.md",
+    "slides:06": "slidev 2026/06-practice-component-driven-ui/slides/session-06.md",
+    "slides:07": "slidev 2026/07-useeffect-data-fetching/slides/session-07.md",
+    "slides:08": "slidev 2026/08-forms-custom-hooks/slides/session-08.md",
+    "slides:09": "slidev 2026/09-practice-capstone-idea/slides/session-09.md",
+    "slides:10": "slidev 2026/10-react-router-spa-nav/slides/session-10.md",
+    "slides:11": "slidev 2026/11-project-architecture/slides/session-11.md",
+    "slides:12": "slidev 2026/12-build-routing-into-capstone/slides/session-12.md",
+    "slides:13": "slidev 2026/13-context-api-usereducer/slides/session-13.md",
+    "slides:14": "slidev 2026/14-api-layer-patterns/slides/session-14.md",
+    "slides:15": "slidev 2026/15-build-state-data-layer-capstone/slides/session-15.md",
+    "slides:16": "slidev 2026/16-styling-layout/slides/session-16.md",
+    "slides:17": "slidev 2026/17-a11y-performance/slides/session-17.md",
+    "slides:18": "slidev 2026/18-style-polish-capstone/slides/session-18.md",
+    "slides:19": "slidev 2026/19-git-workflow-gh-pages-deploy/slides/session-19.md",
+    "slides:20": "slidev 2026/20-opencode-setup-ai-assisted-dev/slides/session-20.md",
+    "slides:21": "slidev 2026/21-deploy-capstone-with-opencode/slides/session-21.md",
+    "slides:22": "slidev 2026/22-capstone-review-debugging-clinic/slides/session-22.md",
+    "slides:23": "slidev 2026/23-testing-basics-error-handling/slides/session-23.md",
+    "slides:24": "slidev 2026/24-free-build-office-hours/slides/session-24.md",
+    "slides:25": "slidev 2026/25-demo-day/slides/session-25.md",
     "slides:build": "slidev build"
   },
   "repository": {
@@ -22,6 +44,7 @@
   "homepage": "https://github.com/MarioStojcevski/react-course#readme",
   "devDependencies": {
     "@slidev/cli": "^52.19.2",
-    "@slidev/theme-default": "^0.25.0"
+    "@slidev/theme-default": "^0.25.0",
+    "playwright-chromium": "^1.63.0"
   }
 }
